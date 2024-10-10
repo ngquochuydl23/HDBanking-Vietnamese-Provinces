@@ -3,4 +3,4 @@
 .~lock*
 
 .vscode
-dataset-generation-scripts/output/*
+data/dataset-generation-scripts/output/*
