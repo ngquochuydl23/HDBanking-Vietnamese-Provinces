@@ -4,7 +4,7 @@
  * Module dependencies.
  */
 
-var { server, configureMongoDb } = require('../src/app');
+var { server } = require('../src/app');
 
 var debug = require('debug')('wechat:server');
 var http = require('http');
@@ -13,7 +13,7 @@ var http = require('http');
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '4000');
+var port = normalizePort(process.env.PORT || '8900');
 //app.set('port', port);
 
 /**
@@ -90,7 +90,6 @@ async function onListening() {
     : 'port ' + addr.port;
 
   try {
-    await configureMongoDb();
 
     debug('Listening on ' + bind);
   } catch (error) {

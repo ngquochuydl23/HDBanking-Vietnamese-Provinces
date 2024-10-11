@@ -6,6 +6,8 @@ const app = require('express')();
 const { logRequest, logError } = require('./middlewares/loggingMiddleware')
 const { configureMongoDb } = require('./config/mongodb');
 const _ = require('lodash');
+const pingRoute = require('./routes/pingRoute');
+const provinceRoute = require('./routes/provinceRoute');
 
 
 app.set('views', path.join(__dirname, 'views'));
@@ -17,8 +19,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 
 app.use(logRequest)
-
-
+app.use('/api/ping', pingRoute)
+app.use('/api/provinces', provinceRoute)
 app.use(logError)
 
 app.use(function (req, res, next) {
@@ -36,6 +38,5 @@ const server = require('http').createServer(app);
 
 
 module.exports = {
-  server,
-  configureMongoDb
+  server
 }
