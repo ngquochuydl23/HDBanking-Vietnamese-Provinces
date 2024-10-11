@@ -4,3 +4,6 @@
 
 .vscode
 data/dataset-generation-scripts/output/*
+node_modules
+.yarn
+.vs
